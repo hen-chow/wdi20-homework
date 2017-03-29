@@ -1,0 +1,20 @@
+<% if @beer_brand.errors %>
+  <ul>
+    <% @beer_brand.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <%end%>
+  </ul>
+<%end%>
+
+<%= form_for @beer_brand do |b|%>
+  <input type="hidden" name="beer_brand[beer_country_id]" value="<%= @beer_country_id %>" />
+  <p>
+    <%= b.label :name %>
+    <%= b.text_field :name %>
+  </p>
+  <p>
+    <%= b.label :image_src %>
+    <%= b.text_field :image_src %>
+  </p>
+  <%= b.submit %>
+<%end%>

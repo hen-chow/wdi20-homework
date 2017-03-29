@@ -83,3 +83,10 @@ var bank = {
 };
 
 console.log( 'The total balance in the bank is: $' + bank.totalBalanceInBank() );
+
++  transfer: function (acc1, acc2, amount) {
+ +    if (bank.withdraw(acc1, amount)) {
+ +      bank.deposit(acc2, amount);
+ +    }
+ +  }
+ +};

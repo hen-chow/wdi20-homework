@@ -1,0 +1,8 @@
+<h1>List of favourite cars</h1>
+
+<% @results.each do |car| %>
+  <p><a href="/cars/<%= car['id'] %>"><%= "#{car['id']}: #{car['make']} #{car['model']} #{car['year']}" %></a></p>
+<% end %>
+<p>
+  <a href="/cars/new"><button>Play God</button></a>
+</p>

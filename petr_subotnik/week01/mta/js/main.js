@@ -9,29 +9,8 @@
 //The N line has the following stops: Times Square, 34th, 28th, 23rd, Union Square, and 8th
 
 
-//get on Times Square and get off Union Square      travel through 34th 28th 23rd       number of stops: 4 stops!
-//TRIP 'TIMES SQUARE' TO 'UNION SQUARE'!!!!!
 
-//                [0]          [1]     [2]     [3]        [4]          [5]
-// var nLine = ['Times Square', '34th', '28th', '23rd', 'Union Square', '8th'];
-
-//finding a position of input stations
-
-// var positionOfStation1 = function(){
-//   return nLine.indexOf('Times Square');
-// };
-//
-// var positionOfStation2 = function(){
-//   return nLine.indexOf('Union Square');
-// };
-//
-// var position1 = positionOfStation1();  //gives me an index of station 1
-// var position2 = positionOfStation2();  //gives me an index of station 2
-//
-// var trip = nLine.slice(position1, position2);
-// console.log(trip);
-
-var lines = {
+var mta = {
   N: ['Times Square', '34th', '28th', '23rd', 'Union Square', '8th'],
   L: ['8th', '6th', 'Union Square', '3rd', '1st'],
   6: ['Grand Central', '33rd', '28th', '23rd', 'Union Square', 'Astor Place'],
@@ -39,97 +18,66 @@ var lines = {
 
 
 var planTrip = function(startLine, startStation, endLine, endStation) {
-  if (startLine === endLine) {
 
-    var subwayLines = Object.keys(lines);                      //accessing property names (all three lines)!
+  if (startLine == endLine) {
 
-    var whichLine = subwayLines;
+     var stations1 = mta[startLine];                                     // each lines(N,L,6)
+     var startIndex1 = stations1.indexOf(startStation);                  //finding a position of start stations
+     var endIndex1 = stations1.indexOf(endStation);                      //finding a position of last stations
+     var firstTrip = stations1.slice(startIndex1+1, endIndex1+1);        //slice - finding an index of start
 
-    var firstLine = whichLine.indexOf(startLine);
-    var secondLine = whichLine.indexOf(endLine);
-
-
-    var stations1 = firstLine[startStation];                   // CANT WORK IT OUT FOR STARTLINE & ENDLINE!!!!!!!
-    var stations2 = secondLine[endStation];
-
-    var startIndex = stations1.indexOf(startStation);           //finding a position of start stations
-    var endIndex = stations2.indexOf(endStation);               //finding a position of last stations
-
-    if(startIndex < endIndex){
-       var trip = stations.slice(startIndex, endIndex+1);         //slice - finding an index of start stations and last stations
-       console.log('Forward direction');
-       console.log('You must travel through following stations ' + startIndex+1 + endIndex);
-    } else {
-    // startIndex >= endIndex
-       var trip = stations.slice(endIndex, startIndex+1);
-       trip = trip.reverse();
-       console.log('Reverse direction');
-    }
-    console.log(startIndex, endIndex);
-    console.log(trip);
-
-
+       if(startIndex1 > endIndex1){
+          var firstTrip = stations1.slice(endIndex1+1, startIndex1).reverse();
+     }
 
   }else{
 
-    var planTrip = function(startLine, startStation, endLine, endStation){
-      var firstJourney = planTrip(startLine, startStation, endLine, "Union Square");
-      var secondJourney = firstJourney(startLine, "Union Square", endLine, endstation);
+     var stations1 = mta[startLine];
+     var stations2 = mta[endLine];
 
+     var startIndex1 = stations1.indexOf(startStation);
+     var endIndex1 = stations1.indexOf('Union Square');
+     var firstTrip = stations1.slice(startIndex1+1, endIndex1+1);
 
+        if (startIndex1 > endIndex1){
+           var firstTrip = stations1.slice(endIndex1, startIndex1).reverse();
+     }
 
-      }
+     var startIndex2 = stations2.indexOf('Union Square')
+     var endIndex2 = stations2.indexOf(endStation);
+     var secondTrip = stations2.slice(startIndex2+1, endIndex2+1);
 
+       } if (startIndex2 > endIndex2){
+          var secondTrip = stations2.slice(endIndex2, startIndex2).reverse();
+       }
 
+     var multiTrip = function(){
 
+       if (startIndex1 <= endIndex1){
+          var firstTrip = stations1.slice(startIndex1+1, endIndex1+1);
+       }else{
+          (startIndex1 > endIndex1){
+          var firstTrip = stations1.slice(endIndex1, startIndex1).reverse();
+       }
 
+     (startIndex1, endIndex1) + (startIndex2, endIndex2);
+     }
 
-    }
+     var changeStation = ('Union Square')
 
+     console.log('You must travel through the following stops on ' + startLine + ' line: ' + firstTrip);
+     console.log('Change at ' + changeStation);
+     console.log('Your journey continues through the following stops: ' + secondTrip);
+     console.log(multiTrip + ' stops in total');
 
-    console.log(startIndex, endIndex);
-    console.log(trip);
-
-  }
 };
-
-planTrip('N', 'Union Square', 'N', 'Times Square');
-
-
-
-
+// planTrip('N', 'Times Square', 'N', 'Union Square')
+// planTrip('6', 'Grand Central', 'L', '1st')
+// planTrip('L', '1st', '6', 'Grand Central')
+planTrip('6', 'Grand Central', 'N', 'Times Square')
 
 
 
-
-
-//
-//
-//                             // 'N',    '34th',  'Union Square'
-// var singleLineTrip = function(line, startStation, line, endStation) {
-//
-//
-//    var stations = lines[line];                                // each lines(N,L,6)
-//
-//    var startIndex = stations.indexOf(startStation);           //finding a position of start stations
-//    var endIndex = stations.indexOf(endStation);               //finding a position of last stations
-//
-//    if(startIndex < endIndex){
-//       var trip = stations.slice(startIndex, endIndex+1);         //slice - finding an index of start stations and last stations
-//       // console.log('Forward direction');
-//
-//    } else {
-//       // startIndex >= endIndex
-//       var trip = stations.slice(endIndex, startIndex+1);
-//       trip = trip.reverse();
-//       // console.log('Reverse direction');
-//
-//    }
-//
-//    console.log(startStation, endStation);
-//    console.log("You mus travel through " + trip[1]  );
-//
-//
-// };
-//
-// singleLineTrip('N', 'Times Square', 'N', 'Union Square');
+// // N: ['Times Square', '34th', '28th', '23rd', 'Union Square', '8th'],
+// // L: ['8th', '6th', 'Union Square', '3rd', '1st'],
+// // 6: ['Grand Central', '33rd', '28th', '23rd', 'Union Square', 'Astor Place'],

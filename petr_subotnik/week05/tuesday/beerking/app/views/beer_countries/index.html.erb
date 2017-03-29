@@ -1,0 +1,8 @@
+<h1>Beer Countries</h1>
+<%= link_to "New Beer Country", new_beer_country_path %>
+<ul>
+  <% @beer_countries.each do |bc| %>
+    <li><%= link_to bc.name, beer_country_path(bc.id) %> | <%= link_to "Delete", beer_country_path(bc.id), method: :delete%></li>
+  <%end%>
+ </ul>
+  

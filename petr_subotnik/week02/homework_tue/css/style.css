@@ -14,7 +14,7 @@ h1 {
 p {
   font-size: 20px;
   font-family: Yrsa, sans-serif;
-  padding: 10px 20px 30px 40px;
+  padding: 0px 20px 20px 20px;
 }
 footer{
   text-align: center;
@@ -31,25 +31,34 @@ a {
 body {
   background-color: #e2d6c0;
 }
-div {
+.container {
   background-color: white;
   margin: 20px 100px;
+  position: absolute;
+  width: 80%;
+  height:60%;
 }
-img {
-  margin: 20px 140px;
+
+#imgperl {
+  /*display: block;*/
+  /*text-align: center;*/
+  /*margin: auto;*/
+  /*margin-right: auto;*/
 }
-#img {
-  margin: 10px;
+
+#imgperl > img{
+  margin: 0 auto;
+  display: block;
 }
-#bioimg {
-  float: left;
-}
-.container2 img {
-  float: left;
+
+
+#larry {
+  float: right;
   margin: 10px 10px;
 }
 .container2 {
   margin: 40px;
+  background-color: white;
 }
 h3 {
   font-size: 40px;
@@ -61,4 +70,8 @@ iframe {
 .ui_segment{
   height: 100px;
   display: inline-block;
+}
+
+h2 {
+  padding: 10px 20px 10px 20px;
 }

@@ -16,10 +16,10 @@ var halfNumber = function(number){
 halfNumber(5);
 
 var percentOf = function(number1,number2){
-  var foobar = (number1 / number2 * 100);
+  var result = (number1/number2) * 100;
 
-  console.log(number1 + " is " + foobar + '50%' + " of " + number2);
-  return foobar;
+  console.log(number1 + " is " + result + '% of ' + number2);
+  return result;
 }
 percentOf(2,4);
 
@@ -32,14 +32,14 @@ var areaOfCircle = function(radius){
 
 areaOfCircle(2);
 
-// var finalHorror = function(number){
-//   var finalHalf = halfNumber(number);
-//   var finalSquare = squareNumber(finalHalf);
-//   var finalCircle = areaOfCircle(finalSquare);
-//   var finalPercentOf = percentOf(finalCircle);
-//   return finalPercentOf;
-// }
-// finalHorror(6);
+var finalHorror = function(number){
+  var finalHalf = halfNumber(number);                  //=>3
+  var finalSquare = squareNumber(finalHalf);           //=>9
+  var finalCircle = areaOfCircle(finalSquare);         //=>254.469
+  var finalPercentOf = percentOf(finalSquare, finalCircle);         //=>
+  console.log(finalHalf, finalSquare, finalCircle, finalPercentOf);
+}
+finalHorror(6);
 
 
 

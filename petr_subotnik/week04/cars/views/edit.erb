@@ -1,0 +1,15 @@
+<form method="POST" action="/cars/<%= @car['id'] %>">
+  <p>
+    <label>make</label>
+    <input type="text" name="make" value="<%= @car['make'] %>"/>
+  </p>
+  <p>
+    <label>model</label>
+    <input type="text" name="model" value="<%= @car['model'] %>"/>
+  </p>
+  <p>
+    <label>img_src</label>
+    <input type="text" name="img_src" value="<%= @car['img_src'] %>"/>
+  </p>
+  <input type="submit" value="Edit Car"/>
+</form>

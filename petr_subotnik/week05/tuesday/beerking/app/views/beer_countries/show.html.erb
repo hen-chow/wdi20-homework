@@ -1,0 +1,7 @@
+<h1><%= @beer_country.name %></h1>
+<%= link_to "New Beer Brand", new_beer_brand_path(beer_country_id: @beer_country.id) %>
+<ul>
+  <% @beer_country.beer_brands.each do |bb| %>
+    <li><%= bb.name %></li>
+  <%end%>
+</ul>
