@@ -4,7 +4,7 @@ $(document).ready(function(){
   $body.css ("background-image", "url(images/background.jpg)");
 
   $cat = $('img#cat');
-  $xandcat = $('img#xandcat');
+  // $xandcat = $('img#xandcat');
   $cat.css ("top", "450px");
   $xandcat.css ("top","450px")
 

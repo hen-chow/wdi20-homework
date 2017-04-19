@@ -1,0 +1,14 @@
+<header>
+  <input type="text" id="searchFlickr" placeholder="Search...">
+  <select name="colour_codes" id="colours">
+    <% @colours.each do |key, value| %>
+      <option value="<%= value %>"><%= key %></option>
+    <% end %>
+  </select>
+  <input id="submit" type="submit" value="Search Flickr"/>
+  <input id="slideshow-submit" type="submit" value="Create Slideshow"/>
+</header>
+<div id="slideshow">
+</div>
+<div class="content" id="results">
+</div>
